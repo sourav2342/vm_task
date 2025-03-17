@@ -77,6 +77,9 @@ variable "allow_ssh" {
 variable "common_tags" {
   description = "Common tags applied to all resources"
   type        = map(string)
+  default = {
+    Creator = "raavi_sourav@epam.com"
+  }
 }
 
 variable "public_ip_allocation_method" {
@@ -141,6 +144,6 @@ variable "os_disk_caching" {
 }
 
 variable "connection_type" {
-  type        = string
-  default     = "ssh"
+  type    = string
+  default = "ssh"
 }
