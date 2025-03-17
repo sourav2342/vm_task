@@ -63,3 +63,18 @@ variable "vm_password" {
   description = "Password for the virtual machine"
   sensitive   = true
 }
+
+variable "allow_http" {
+  description = "Name of the NSG rule to allow HTTP traffic"
+  type        = string
+}
+
+variable "allow_ssh" {
+  description = "Name of the NSG rule to allow SSH traffic"
+  type        = string
+}
+
+variable "tags" {
+  description = "Tags to apply to resources"
+  type        = map(string)
+}
