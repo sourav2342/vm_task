@@ -67,11 +67,13 @@ variable "vm_password" {
 variable "allow_http" {
   description = "Name of the NSG rule to allow HTTP traffic"
   type        = string
+  default     = "AllowHTTP"
 }
 
 variable "allow_ssh" {
   description = "Name of the NSG rule to allow SSH traffic"
   type        = string
+  default     = "AllowSSH"
 }
 
 variable "common_tags" {
