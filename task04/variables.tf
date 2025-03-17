@@ -121,7 +121,7 @@ variable "image_offer" {
 variable "image_sku" {
   description = "SKU of the image"
   type        = string
-  default     = "24_04-lts"
+  default     = "22_04-lts"
 }
 
 variable "image_version" {
