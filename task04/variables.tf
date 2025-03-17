@@ -157,3 +157,14 @@ variable "connection_type" {
   default     = "ssh"
   description = "Defines connections"
 }
+
+variable "vm_setup_commands" {
+  description = "List of commands to configure the VM"
+  type        = list(string)
+  default = [
+    "sudo apt update",
+    "sudo apt install -y nginx",
+    "sudo systemctl start nginx",
+    "sudo systemctl enable nginx"
+  ]
+}

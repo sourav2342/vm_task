@@ -116,12 +116,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
 
   provisioner "remote-exec" {
-    inline = [
-      "sudo apt update",
-      "sudo apt install -y nginx",
-      "sudo systemctl start nginx",
-      "sudo systemctl enable nginx"
-    ]
+    inline = var.vm_setup_commands
 
     connection {
       type     = var.connection_type
