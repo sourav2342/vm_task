@@ -98,14 +98,14 @@ resource "azurerm_network_interface_security_group_association" "nic_nsg" {
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
-  name                = var.vm_name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  size                = "Standard_F2s_v2"
-  admin_username      = var.admin_username
+  name                  = var.vm_name
+  resource_group_name   = azurerm_resource_group.rg.name
+  location              = azurerm_resource_group.rg.location
+  size                  = "Standard_F2s_v2"
+  admin_username        = var.admin_username
   network_interface_ids = [azurerm_network_interface.nic.id]
 
-  admin_password = var.vm_password
+  admin_password                  = var.vm_password
   disable_password_authentication = false
 
   os_disk {
