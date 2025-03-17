@@ -74,7 +74,56 @@ variable "allow_ssh" {
   type        = string
 }
 
-variable "tags" {
-  description = "Tags to apply to resources"
+variable "common_tags" {
+  description = "Common tags applied to all resources"
   type        = map(string)
+}
+
+variable "public_ip_allocation_method" {
+  description = "Defines whether the public IP allocation is Static or Dynamic"
+  type        = string
+  default     = "Static"
+}
+
+
+variable "private_ip_allocation_method" {
+  description = "Defines whether the private IP allocation is Dynamic or Static"
+  type        = string
+  default     = "Dynamic"
+}
+
+variable "vm_size" {
+  description = "Size of the virtual machine"
+  type        = string
+  default     = "Standard_F2s_v2"
+}
+
+variable "os_disk_storage_account_type" {
+  description = "Type of storage account for the OS disk"
+  type        = string
+  default     = "Standard_LRS"
+}
+
+variable "image_publisher" {
+  description = "Publisher of the image"
+  type        = string
+  default     = "Canonical"
+}
+
+variable "image_offer" {
+  description = "Offer of the image"
+  type        = string
+  default     = "0001-com-ubuntu-server-focal"
+}
+
+variable "image_sku" {
+  description = "SKU of the image"
+  type        = string
+  default     = "24_04-lts"
+}
+
+variable "image_version" {
+  description = "Version of the image"
+  type        = string
+  default     = "latest"
 }
