@@ -122,7 +122,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
       type     = var.connection_type
       user     = var.admin_username
       password = var.vm_password
-      host     = azurerm_public_ip.public_ip.ip_address
+      host     = self.public_ip_address
     }
   }
 }
