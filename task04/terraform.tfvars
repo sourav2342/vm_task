@@ -12,3 +12,6 @@ admin_username      = "azureuser"
 allow_http = "AllowHTTP"
 allow_ssh  = "AllowSSH"
 
+common_tags = {
+  Creator = "raavi_sourav@epam.com"
+}

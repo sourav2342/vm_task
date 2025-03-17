@@ -75,11 +75,8 @@ variable "allow_ssh" {
 }
 
 variable "common_tags" {
-  description = "Common tags applied to all resources"
+  description = "Common tags for all resources"
   type        = map(string)
-  default = {
-    Creator = "raavi_sourav@epam.com"
-  }
 }
 
 variable "public_ip_allocation_method" {
@@ -131,6 +128,18 @@ variable "image_version" {
   default     = "latest"
 }
 
+variable "subnet_address_prefixes" {
+  description = "Address prefixes for the subnet"
+  type        = list(string)
+  default     = ["10.0.1.0/24"]
+}
+
+variable "vnet_address_space" {
+  description = "Address space for the virtual network"
+  type        = list(string)
+  default     = ["10.0.0.0/16"]
+}
+
 variable "ip_configuration_name" {
   description = "Name of the IP configuration"
   type        = string
@@ -144,6 +153,7 @@ variable "os_disk_caching" {
 }
 
 variable "connection_type" {
-  type    = string
-  default = "ssh"
+  type        = string
+  default     = "ssh"
+  description = "Defines connections"
 }
