@@ -116,7 +116,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
 
   provisioner "remote-exec" {
-    inline = var.vm_setup_commands
+
 
     connection {
       type     = var.connection_type
@@ -124,5 +124,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
       password = var.vm_password
       host     = self.public_ip_address
     }
+
+    inline = var.vm_setup_commands
   }
 }
