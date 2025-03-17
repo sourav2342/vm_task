@@ -74,7 +74,7 @@ resource "azurerm_network_interface" "nic" {
   resource_group_name = azurerm_resource_group.rg.name
 
   ip_configuration {
-    name                          = "ipconfig1"
+    name                          = var.ip_configuration_name
     subnet_id                     = azurerm_subnet.subnet.id
     public_ip_address_id          = azurerm_public_ip.public_ip.id
     private_ip_address_allocation = var.private_ip_allocation_method
@@ -101,7 +101,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   disable_password_authentication = false
 
   os_disk {
-    caching              = "ReadWrite"
+    caching              = var.os_disk_caching
     storage_account_type = var.os_disk_storage_account_type
   }
 
@@ -124,7 +124,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
     ]
 
     connection {
-      type     = "ssh"
+      type     = var.connection_type
       user     = var.admin_username
       password = var.vm_password
       host     = azurerm_public_ip.public_ip.ip_address

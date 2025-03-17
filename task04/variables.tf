@@ -127,3 +127,20 @@ variable "image_version" {
   type        = string
   default     = "latest"
 }
+
+variable "ip_configuration_name" {
+  description = "Name of the IP configuration"
+  type        = string
+  default     = "ipconfig1"
+}
+
+variable "os_disk_caching" {
+  description = "Defines the caching behavior of the OS disk"
+  type        = string
+  default     = "ReadWrite"
+}
+
+variable "connection_type" {
+  type        = string
+  default     = "ssh"
+}
