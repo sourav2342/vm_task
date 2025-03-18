@@ -42,7 +42,7 @@ resource "azurerm_network_security_group" "nsg" {
 
 resource "azurerm_network_security_rule" "allow_http" {
   name                        = var.allow_http
-  priority                    = 1001
+  priority                    = 100
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
@@ -56,7 +56,7 @@ resource "azurerm_network_security_rule" "allow_http" {
 
 resource "azurerm_network_security_rule" "allow_ssh" {
   name                        = var.allow_ssh
-  priority                    = 1002
+  priority                    = 102
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
@@ -107,8 +107,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   source_image_reference {
     publisher = "canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts"
+    offer     = "ubuntu-24_04-lts"
+    sku       = "server"
     version   = "latest"
   }
 
@@ -119,8 +119,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
 
     connection {
-      type     = var.connection_type
-      user     = var.admin_username
+      type     = "ssh"
+      user     = "azureuser"
       password = var.vm_password
       host     = self.public_ip_address
     }
